@@ -31,7 +31,6 @@ class CustomerService(
         customerRepository.save(customerCopy)
     }
 
-
     fun findById(id: Int): CustomerModel? {
         return customerRepository.findById(id).orElseThrow{
             NotFoundException(Errors.ML1102.message.format(id), Errors.ML1102.code)}

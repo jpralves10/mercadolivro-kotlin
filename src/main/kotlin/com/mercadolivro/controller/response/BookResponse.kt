@@ -11,7 +11,7 @@ data class BookResponse(
 
     var price: BigDecimal,
 
-    var customer: CustomerModel? = null,
+    //var customer: CustomerModel? = null,
 
     var status: BookStatus? = null
 )

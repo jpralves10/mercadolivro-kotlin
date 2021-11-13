@@ -2,10 +2,10 @@ package fundamentos
 
 //Unit é o mesmo que void
 
-fun main(): Unit {
+/*fun main(): Unit {
     dizOi(retornaNome(), 31)
     dizOi(retornaNome())
-}
+}*/
 
 fun retornaNome(): String {
     return "Jean"

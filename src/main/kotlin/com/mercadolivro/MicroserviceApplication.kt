@@ -1,5 +1,6 @@
 package com.mercadolivro
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
@@ -16,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2
 @ComponentScan("com.mercadolivro")
 @EnableAsync
 @SpringBootApplication
-open class MicroserviceApplication
+class MicroserviceApplication
 
 fun main(args: Array<String>){
     runApplication<MicroserviceApplication>(*args)

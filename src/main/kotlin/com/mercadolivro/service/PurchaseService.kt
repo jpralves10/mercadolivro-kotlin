@@ -1,6 +1,8 @@
 package com.mercadolivro.service
 
+import com.mercadolivro.enums.Errors
 import com.mercadolivro.events.PurchaseEvent
+import com.mercadolivro.exception.NotFoundException
 import com.mercadolivro.model.PurchaseModel
 import com.mercadolivro.repository.PurchaseRepository
 import org.springframework.context.ApplicationEventPublisher
@@ -22,5 +24,10 @@ class PurchaseService(
 
     fun update(purchaseModel: PurchaseModel) {
         purchaseRepository.save(purchaseModel)
+    }
+
+    fun get(id: Int) : PurchaseModel{
+        return purchaseRepository.findById(id).orElseThrow{
+            NotFoundException(Errors.ML1201.message.format(id), Errors.ML1201.code) }
     }
 }

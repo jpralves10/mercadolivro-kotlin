@@ -1,6 +1,6 @@
 package fundamentos
 
-fun main(){
+/*fun main(){
 
     var lista: List<Int?> = listOf(1, 2, null, 4)
     var listaNull: List<Int>? = null
@@ -16,4 +16,4 @@ fun main(){
     var tamanho: Int = nome?.length ?: 0
 
     println(tamanho)
-}
+}*/

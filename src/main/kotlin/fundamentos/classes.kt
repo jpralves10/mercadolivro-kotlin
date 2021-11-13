@@ -10,7 +10,7 @@ data class Pessoa3(var nome:String, var idade:Int) {
     }
 }
 
-fun main(){
+/*fun main(){
     var pessoa1 = Pessoa1("Jean Alves", 31)
     println(pessoa1)
 
@@ -19,4 +19,4 @@ fun main(){
 
     var pessoa3 = Pessoa3("Jean Alves", 31)
     println(pessoa3)
-}
+}*/

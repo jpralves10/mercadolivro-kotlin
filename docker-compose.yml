@@ -23,6 +23,18 @@ services:
     networks:
       - mysql-compose-network
 
+  mercadolivro:
+    image: jpralves/mercadolivro-kotlin:latest
+    environment:
+      - API_KEY=666
+      - DATABASE_ENV=mysqlsrv
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysqlsrv
+    networks:
+      - mysql-compose-network
+
 networks: 
   mysql-compose-network:
     driver: bridge

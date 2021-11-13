@@ -7,10 +7,12 @@ import com.mercadolivro.controller.request.PutCustomerRequest
 import com.mercadolivro.controller.response.BookResponse
 import com.mercadolivro.controller.response.CustomerResponse
 import com.mercadolivro.controller.response.PageResponse
+import com.mercadolivro.controller.response.PurchaseResponse
 import com.mercadolivro.enums.BookStatus
 import com.mercadolivro.enums.CustomerStatus
 import com.mercadolivro.model.BookModel
 import com.mercadolivro.model.CustomerModel
+import com.mercadolivro.model.PurchaseModel
 import org.springframework.data.domain.Page
 
 fun PostCustomerRequest.toCustomerModel(): CustomerModel {
@@ -64,10 +66,39 @@ fun BookModel.toResponse(): BookResponse {
         id = this.id,
         name = this.name,
         price = this.price,
-        customer = this.customer,
+        //customer = this.customer,
         status = this.status
     )
 }
+
+fun PurchaseModel.toResponse(): PurchaseResponse {
+    return PurchaseResponse(
+        id = this.id,
+        nfe = this.nfe,
+        price = this.price,
+        createdAt = this.createdAt,
+        customer = this.customer.toResponse(),
+        books = this.books.toResponse()
+    )
+}
+
+fun MutableList<BookModel>.toResponse(): MutableList<BookResponse> {
+
+    var list: MutableList<BookResponse> = arrayListOf()
+
+    this.forEach {
+        list.add(
+            BookResponse(
+                id = it.id,
+                name = it.name,
+                price = it.price,
+                status = it.status
+            )
+        )
+    }
+    return list
+}
+
 
 fun <T> Page<T>.toPageResponse(): PageResponse<T> {
     return PageResponse(

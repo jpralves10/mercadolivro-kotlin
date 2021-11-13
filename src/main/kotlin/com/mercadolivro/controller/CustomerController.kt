@@ -8,6 +8,7 @@ import com.mercadolivro.extension.toResponse
 import com.mercadolivro.model.CustomerModel
 import com.mercadolivro.security.UserCanOnlyAccessTheirOwnResource
 import com.mercadolivro.service.CustomerService
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
@@ -17,6 +18,14 @@ import javax.validation.Valid
 class CustomerController(
     private val customerService : CustomerService
 ) {
+
+    @Value("\${api.key}")
+    lateinit var apikey: String;
+
+    @GetMapping("/apikey")
+    fun getApiKey(): String {
+        return "Success $apikey"
+    }
 
     @GetMapping
     fun getAll(@RequestParam name: String?): List<CustomerResponse> {

@@ -33,5 +33,4 @@ class AuthorizationFilter(
         val customer = userDetails.loadUserByUsername(subject)
         return UsernamePasswordAuthenticationToken(customer, null, customer.authorities)
     }
-
 }
